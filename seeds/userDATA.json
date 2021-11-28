@@ -2,4 +2,9 @@
     "name":"Daniel",
     "email": "example@example.com",
     "password": "Password1234"
+},
+{
+    "name": "Test",
+    "email": "email@email.com",
+    "password": "password1"
 }]

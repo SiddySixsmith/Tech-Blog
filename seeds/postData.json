@@ -1,11 +1,8 @@
 [{
     "title": "New blog",
-    "content": "new content",
-    "user_id": 1
+    "content": "new content"
 },
 {
     "title": "New blog",
-    "content": "new content",
-    "user_id": 1
-
+    "content": "new content"
 }]
