@@ -1,0 +1,9 @@
+a {
+  color: white;
+  text-decoration: none;
+}
+
+#viewBtn {
+  background-color: green;
+  border: green;
+}

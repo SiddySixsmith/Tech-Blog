@@ -1,0 +1,56 @@
+<div class="col-10 post-card">
+  <div class="card">
+    <div class="card-header">
+      <h3>{{user.name}}</h3><span> - {{format_date date_created}}</span>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">{{title}} - </h5>
+      <p>{{content}}</p> 
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row mt-4 justify-content-center">
+  {{#if comments.length}}
+  <div class="col-8 post-list">
+    <h3 id="comment-header">Comments:</h3>
+
+    {{#each comments as |comment|}}
+    <div class="col-10 post-card">
+      <div class="card">
+        <div class="card-header">
+          {{comment.user.name}}
+        </div>
+        <div class="card-body">
+          <p>{{user.comment.text}}</p>
+        </div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+
+  {{#if logged_in}}
+  <div class="col-6 comment-form">
+    <h3 class="card-title" id="comment-form-title">leave a comment:</h3>
+    <form class="form new-post-form">
+      <div class="row"><div class="col-12">
+        <div class="form-group">
+          <textarea class="form-control" id="comment" name="comment" placeholder="comment:"></textarea>
+        </div></div>
+      </div>
+      <br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" id="postBtn">post.</button>
+      </div>
+    </form>
+  </div>
+  {{/if}}
+
+  {{#if logged_in}}
+  <script src="/js/comment.js"></script>
+  {{/if}}
+
+</div>

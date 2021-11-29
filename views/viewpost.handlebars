@@ -1,0 +1,17 @@
+<div class="col-md-8 update-post-form">
+    <form class="form update-post-form">
+      <div class="form-group">
+          <h4 class="card-title" id="update-title">{{title}}<span> - {{format_date date_created}}</span></h4>
+      </div>
+      <div class="form-group">
+        <label for="post-desc"></label>
+        <textarea class="form-control" id="update-text-area" name="post-desc" placeholder="{{content}}">{{content}}</textarea>
+      </div>
+      <br>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary" data-id="{{id}}" id="editBtn">UPDATE</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="/js/viewpost.js"></script>

@@ -14,7 +14,7 @@ const newFormHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to create post");
     }
@@ -30,7 +30,7 @@ const delButtonHandler = async (event) => {
     });
 
     if (response.ok) {
-      document.location.replace("/profile");
+      document.location.replace("/dashboard");
     } else {
       alert("Failed to delete post");
     }
@@ -40,3 +40,5 @@ const delButtonHandler = async (event) => {
 document
   .querySelector(".new-post-form")
   .addEventListener("submit", newFormHandler);
+
+document.querySelector("#delBtn").addEventListener("click", delButtonHandler);

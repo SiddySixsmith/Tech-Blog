@@ -5,6 +5,16 @@
   <div class="card-body ">
     <p class="card-text">{{post.content}}</p>
   </div>
+  {{#if comments.length}}
+  <div class="card-body">
+      <p>Comments: {{post.comments.text}}</p>
+    </div>
+    {{/if}}
+  <div class="card-header">
+      {{post.user.name}} <span> - {{format_date post.date_created}}</span>
+    </div>
+</div>
+
 </div>
   <br>
 {{/each}}
