@@ -1,9 +1,25 @@
-a {
+.post-link {
   color: white;
   text-decoration: none;
+}
+#footer-text {
+  color: black;
 }
 
 #viewBtn {
   background-color: green;
   border: green;
+}
+
+#delBtn {
+  float: right;
+  margin-right: 5px;
+}
+
+#viewBtn {
+  float: left;
+  margin-left: 5px;
+
+  position: relative;
+  bottom: 40px;
 }

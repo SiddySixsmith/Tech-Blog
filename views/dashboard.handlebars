@@ -1,6 +1,6 @@
 <div class="row">
   <div class="col-auto">
-    <h2>Welcome, {{post.user.id}}!</h2>
+    <h2>Welcome, {{name}}!</h2>
   </div>
 </div>
 <br>
@@ -31,22 +31,21 @@
 {{#each posts as |post| }}
 <div>
    <div class="card text-white bg-secondary" >
-  <h2> <a href="/dashboard/update/{{post.id}}"> {{post.title}}</a><span></h2>
+  <h2 class="card-header"> <a class="post-link" href="/dashboard/update/{{post.id}}"> {{post.title}}</a><span></h2>
   <div class="card-body ">
-    <p class="card-text">{{post.content}}</p>
+    <p class="card-text card-body">{{post.content}}</p> 
   </div>
   <div class="card-body ">
-    <p class="card-text">{{format_date post.date_created}}</p>
+    <p class="card-header">  {{format_date post.date_created}}</p>
   </div>
   <div class="col-12 text-center">
-        <button class="btn btn-sm btn-danger" id="delBtn" data-id="{{post.id}}">DELETE</button>
+        <button class="btn btn-danger post-link " id="delBtn" data-id="{{post.id}}">DELETE</button>
       </div>
       <div class="col-12 text-center">
-        <button class="btn btn-sm btn-danger" id="viewBtn" ><a href="/dashboard/{{post.id}}"> View</a></button>
+        <button class="btn  btn-danger" id="viewBtn" ><a class=" post-link" href="/api/posts/{{post.id}}"> View</a></button>
       </div>
 </div>
   <br>
   <br>
 {{/each}}
-
 <script src="/js/dashboard.js"></script>
