@@ -1,5 +1,6 @@
+
 {{#each posts as |post| }}
-<div>
+<a id="post-link" href="/api/posts/{{post.id}}">
    <div class="card text-white bg-secondary" >
   <h2 class="card-header">{{post.title}}</h2>
   <div class="card-body ">
@@ -15,6 +16,8 @@
     </div>
 </div>
 
-</div>
+</a>
   <br>
 {{/each}}
+
+

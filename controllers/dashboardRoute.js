@@ -4,23 +4,21 @@ const withAuth = require("../utilities/auth");
 
 router.get("/", withAuth, async (req, res) => {
   try {
-    // Get all projects and JOIN with user data
-    const postData = await Post.findAll(req.params.id, {
+    const userData = await User.findByPk(req.session.user_id, {
+      attributes: { exclude: ["password"] },
       include: [
         {
-          model: User,
-          attributes: ["name", "id"],
+          model: Post,
+          attributes: ["id", "title", "content", "date_created"],
         },
       ],
     });
 
-    // Serialize data so the template can read it
-    const posts = postData.map((post) => post.get({ plain: true }));
+    const user = userData.get({ plain: true });
 
-    // Pass serialized data and session flag into template
     res.render("dashboard", {
-      posts,
-      logged_in: req.session.logged_in,
+      ...user,
+      logged_in: true,
     });
   } catch (err) {
     res.status(500).json(err);

@@ -1,5 +1,5 @@
 const router = require("express").Router();
-const { Post, User } = require("../../models");
+const { Post, User, Comment } = require("../../models");
 const withAuth = require("../../utilities/auth");
 
 router.post("/", withAuth, async (req, res) => {
@@ -17,7 +17,22 @@ router.post("/", withAuth, async (req, res) => {
 
 router.get("/:id", async (req, res) => {
   try {
-    const postData = await Post.findByPk(req.params.id);
+    const postData = await Post.findByPk(req.params.id, {
+      include: [
+        {
+          model: User,
+          attributes: ["name", "id"],
+        },
+        {
+          model: Comment,
+          attributes: ["id", "text", "post_id", "user_id", "created_at"],
+          include: {
+            model: User,
+            attributes: ["name"],
+          },
+        },
+      ],
+    });
 
     const post = postData.get({ plain: true });
 
@@ -27,6 +42,7 @@ router.get("/:id", async (req, res) => {
     });
   } catch (err) {
     res.status(500).json(err);
+    console.log(err);
   }
 });
 

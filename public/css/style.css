@@ -23,3 +23,10 @@
   position: relative;
   bottom: 40px;
 }
+
+#post-link {
+  text-decoration: none;
+}
+
+.comment-box {
+}
